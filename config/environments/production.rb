@@ -32,6 +32,8 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # `config.assets.precompile` and `config.assets.version` have moved to conf
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
