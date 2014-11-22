@@ -1,0 +1,27 @@
+<% if @book.errors.any? %>
+  <h2>The following errors prevented your book from saving:</h2>
+  <ul>
+  <% @book.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<h1>Add a new book</h1>
+<%= form_for @book do |f| %>
+  <fieldset>
+    <legend>Book</legend>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  </fieldset>
+  <%= f.submit %>
+<% end %>

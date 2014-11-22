@@ -1,0 +1,29 @@
+<h1><%= @book.title %></h1>
+<h3>by <%= @book.author %></h3>
+<h3>added by <%= @book.user.email %></h3>
+<p>likes <%= @book.likes %> dislikes <%= @book.dislikes %></p>
+<p><%= link_to @book.comment%>
+<p><%= link_to "Back to home page", root_path %></p>
+
+<% if user_signed_in? %>
+
+<h3>Add a comment</h3>
+
+<%= form_for [@book, @comment] do |f| %>
+	<%= f.text_area :body %><br />
+	<%= f.submit %>
+<% end %>
+<% else %> 
+<p>Sign in or sign up to comment! </p>
+<% end %>
+
+<hr />
+<% if @book.comments.empty? %>
+<p> No comments yet :(</p>
+<% else %>
+	<%@book.comments.each do |comment| %>
+		<p><%= comment.body %></p>
+		<hr/>
+	<% end %>
+
+<% end %>

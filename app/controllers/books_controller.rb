@@ -2,12 +2,12 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @books = params[:q] ? Books.search_for(params[:q]) : Books.all
+    @books = params[:q] ? Book.search_for(params[:q]) : Book.all
   end
 
   def show
-    @book = Books.find params[:id]
-    @omment = Comment.new
+    @book = Book.find params[:id]
+    @comment = Comment.new
   end
 
   def new
@@ -16,8 +16,8 @@ class BooksController < ApplicationController
 
 def create
     @book = Book.new(params.require(:book).permit(:title, :author, :likes, :dislikes, :description))
-    if @books.save
-      redirect_to @books, notice: "New Book Created!"
+    if @book.save
+      redirect_to @book, notice: "New Book Created!"
     else
       render :new
     end
