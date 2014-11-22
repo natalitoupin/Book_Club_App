@@ -1,0 +1,26 @@
+<h1>Welcome to the Book Club!</h1>
+
+
+<p>image will go here</p>
+
+<h2>All the fund of a book club virtually</h2>
+
+
+<%= form_tag '/', method: :get do %>
+  <%= search_field_tag :q, params[:q] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<p>Search by Author or Title</p>
+<br/>
+
+<div id="books">
+  <ul>
+    <%= render @books %>
+  </ul>
+</div>
+
+
+<h3><%= link_to "Add New Book", new_book_path %></h3>
+
+
+
