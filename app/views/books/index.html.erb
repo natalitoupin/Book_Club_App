@@ -13,14 +13,22 @@
 <p>Search by Author or Title</p>
 <br/>
 
-<div id="books">
-  <ul>
-    <%= render @books %>
-  </ul>
-</div>
+
+<p>Please see below for a list of all books:</p>
+<% @books.each do |book| %>
+	<section>
+	<h3><%= link_to book.title, book %></h3>
+	<p><%= book.description %></p>
+	</section>
+	<hr></hr>
+<% end %>
 
 
 <h3><%= link_to "Add New Book", new_book_path %></h3>
+
+
+<!-- 
+http://getbootstrap.com/css/#buttons -->
 
 
 

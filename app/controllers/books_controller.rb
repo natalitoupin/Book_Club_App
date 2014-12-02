@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @books = params[:q] ? Book.search_for(params[:q]) : Book.all
+    @books = Book.search_for(params[:q])
   end
 
   def show
