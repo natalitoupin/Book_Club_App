@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   end
 
 def create
-    @book = Book.new(params.require(:book).permit(:title, :author, :likes, :dislikes, :description))
+    @book = Book.new(params.require(:book).permit(:title, :author, :likes, :dislikes, :description).merge(user_id: current_user.id))
     if @book.save
       redirect_to @book, notice: "New Book Created!"
     else
