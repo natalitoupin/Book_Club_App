@@ -5,6 +5,8 @@
 
 <h2>All the fund of a book club virtually</h2>
 
+<h3><%= link_to "Add New Book", new_book_path %></h3>
+
 
 <%= form_tag '/', method: :get do %>
   <%= search_field_tag :q, params[:q] %>
@@ -24,7 +26,7 @@
 <% end %>
 
 
-<h3><%= link_to "Add New Book", new_book_path %></h3>
+
 
 
 <!-- 
