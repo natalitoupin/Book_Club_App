@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 		@comment.book = Book.find(params[:id])
 
 		if @comment.save
-			redirect_to @comment.book
+			redirect_to book_path(@comment.book)
 		else
 			redirect_to root_path
 		end

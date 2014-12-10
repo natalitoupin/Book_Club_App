@@ -1,6 +1,7 @@
 <h1><%= @book.title %></h1>
 <h3>by <%= @book.author %></h3>
 <h4>added by <%= @book.user.email %></h4>
+<h4><%= link_to 'Buy Me!', @book.amazon_search_url, target: '_blank' %></h4>
 
 
 <% if user_signed_in? %>

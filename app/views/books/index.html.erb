@@ -8,7 +8,7 @@
 	<p>Click to add new book</p>
 
 	
-	<%= form_tag '/', method: :get do %>
+	<%= form_tag search_books_path, method: :get do %>
 	  <%= search_field_tag :q, params[:q] %>
 	  <%= submit_tag "Search" %>
 	<% end %>
@@ -20,8 +20,11 @@
 	<% @books.each do |book| %>
 		<section>
 			<h3><%= link_to book.title, book %></h3>
-			<h4><%= book.author%></h4>
+			<h4><%= book.author%> | <%= link_to 'Buy Me!', book.amazon_search_url, target: '_blank' %></h4>
 			<p><%= book.description %></p>
+			<% if user_signed_in? %>
+			<%=link_to 'Delete', "/books/#{book.id}", method: :delete %>
+			<% end %>
 		</section>
 		<hr/>
 	<% end %>

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # devise_for :users
   root 'books#index'
-  resources :books
+  resources :books do
+    collection do
+      get :search
+    end
+  end
   post 'books/:id/comments', to: 'comments#create', as: 'book_comments'
 
   # The priority is based upon order of creation: first created -> highest priority.
