@@ -34,6 +34,8 @@ gem 'autoprefixer-rails'
 
 gem 'amazon-product-advertising-api', '~> 0.2.1'
 
+gem 'selenium-webdriver', '~> 2.44.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
